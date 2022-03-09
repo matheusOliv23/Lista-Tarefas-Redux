@@ -3,11 +3,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface TarefasState {
   value: string[];
   id: string;
+  completar: boolean;
 }
 
 const initialState: TarefasState = {
   value: [],
   id: "",
+  completar: false,
 };
 
 export const tarefasSlice = createSlice({
@@ -20,12 +22,20 @@ export const tarefasSlice = createSlice({
     removerTarefa: (state, action: PayloadAction<number>) => {
       state.value.splice(action.payload, 1);
     },
-    // concluirTarefa: (state, action: PayloadAction<{ completa: boolean; id: string }>) => {
-    // const index = state.value.findIndex((tarefa) => tarefa === action.payload.id)
-    //   state.value[index] = action.payload.completa;
-    // }
+    completarTarefa: (
+      state,
+      action: PayloadAction<{ completar: string; id: string }>
+    ) => {
+      state.value.map((item) => {
+        if (item === action.payload.id) {
+          state.completar = !state.completar;
+        }
+        return item;
+      });
+    },
   },
 });
 
-export const { addTarefa, removerTarefa } = tarefasSlice.actions;
+export const { addTarefa, removerTarefa, completarTarefa } =
+  tarefasSlice.actions;
 export default tarefasSlice.reducer;

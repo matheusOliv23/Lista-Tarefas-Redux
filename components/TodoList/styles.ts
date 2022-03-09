@@ -4,6 +4,10 @@ import styled from "styled-components";
 import { MdDelete } from "react-icons/md";
 import { AiOutlineEdit } from "react-icons/ai";
 
+interface TarefaStyleType {
+  complete?: boolean;
+}
+
 export const ContainerGeral = styled.main`
   display: flex;
   flex-direction: column;
@@ -17,11 +21,9 @@ export const ContainerGeral = styled.main`
   padding-bottom: 32px;
 `;
 
-export const Container = styled.div`
+export const Container = styled.div``;
 
-`;
-
-export const ContainerTarefa = styled.div`
+export const ContainerTarefa = styled.div<TarefaStyleType>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,6 +40,8 @@ export const ContainerTarefa = styled.div`
   width: 90%;
 
   transition: all 0.5s ease-in-out;
+
+  opacity: ${(props) => (props.complete ? 0.4 : 1)};
 
   &:hover {
     cursor: pointer;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTarefa } from "../../Redux/features/tarefasSlice";
-import { RootState } from "../../Redux/store";
+import { addTarefa, completarTarefa } from "../../Redux/features/tarefasSlice";
+import { AppDispatch, RootState } from "../../Redux/store";
 import { Button, Container, FormContainer, Input, Titulo } from "./styles";
 import TarefaItem from "./tarefaItem";
 
@@ -10,7 +10,7 @@ export default function TodoList() {
 
   const tarefas = useSelector((state: RootState) => state.tarefas.value);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   function handleSubmit(e: any) {
     e.preventDefault();
@@ -18,6 +18,7 @@ export default function TodoList() {
     dispatch(addTarefa(valorInput));
     setValorInput("");
   }
+
   return (
     <Container>
       <Titulo>React Redux Toolkit</Titulo>

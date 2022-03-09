@@ -1,5 +1,8 @@
 import { useDispatch } from "react-redux";
-import { removerTarefa } from "../../Redux/features/tarefasSlice";
+import {
+  completarTarefa,
+  removerTarefa,
+} from "../../Redux/features/tarefasSlice";
 import { ContainerTarefa, Deletar, Editar, Icones } from "./styles";
 
 interface TarefasCardTypes {
@@ -15,12 +18,14 @@ export default function TarefaItem({ tarefa, index }: TarefasCardTypes) {
     dispatch(removerTarefa(index));
   }
 
+  function editarTarefa() {}
+
   return (
     <ContainerTarefa>
       <div>{tarefa}</div>
       <Icones>
         <Deletar onClick={deletarTarefa} />
-        <Editar />
+        {/* <Editar /> */}
       </Icones>
     </ContainerTarefa>
   );
