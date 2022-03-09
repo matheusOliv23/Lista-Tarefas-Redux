@@ -2,10 +2,12 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface TarefasState {
   value: string[];
+  id: string;
 }
 
 const initialState: TarefasState = {
   value: [],
+  id: "",
 };
 
 export const tarefasSlice = createSlice({
@@ -18,6 +20,10 @@ export const tarefasSlice = createSlice({
     removerTarefa: (state, action: PayloadAction<number>) => {
       state.value.splice(action.payload, 1);
     },
+    // concluirTarefa: (state, action: PayloadAction<{ completa: boolean; id: string }>) => {
+    // const index = state.value.findIndex((tarefa) => tarefa === action.payload.id)
+    //   state.value[index] = action.payload.completa;
+    // }
   },
 });
 

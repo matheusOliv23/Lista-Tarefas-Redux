@@ -1,16 +1,16 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import TodoList from "../components/TodoList";
-import styles from "../styles/Home.module.css";
+import { ContainerGeral } from "../components/TodoList/styles";
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <ContainerGeral>
       <Head>
-        <title>ToDo List</title>
+        <title>Tarefas</title>
       </Head>
       <TodoList />
-    </div>
+    </ContainerGeral>
   );
 };
 

@@ -2,7 +2,16 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTarefa } from "../../Redux/features/tarefasSlice";
 import { RootState } from "../../Redux/store";
-import { Container } from "./styles";
+import {
+  Button,
+  Container,
+  Deletar,
+  Editar,
+  FormContainer,
+  Icones,
+  Input,
+  Titulo,
+} from "./styles";
 import TarefaItem from "./tarefaItem";
 
 export default function TodoList() {
@@ -20,21 +29,20 @@ export default function TodoList() {
   }
   return (
     <Container>
-      <form onSubmit={handleSubmit}>
-        <input
+      <Titulo>React Redux Toolkit</Titulo>
+      <FormContainer onSubmit={handleSubmit}>
+        <Input
           value={valorInput}
           onChange={(e) => setValorInput(e.target.value)}
           type="text"
+          placeholder="Adicione uma tarefa"
         />
-        <button type="submit">adicionar</button>
-      </form>
-      <ul>
-        {tarefas.map((tarefa, index) => (
-          <div>
-            <TarefaItem tarefa={tarefa} index={index} />
-          </div>
-        ))}
-      </ul>
+        <Button type="submit">adicionar</Button>
+      </FormContainer>
+
+      {tarefas.map((tarefa, index) => (
+        <TarefaItem key={index} tarefa={tarefa} index={index} />
+      ))}
     </Container>
   );
 }
