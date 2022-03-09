@@ -2,16 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTarefa } from "../../Redux/features/tarefasSlice";
 import { RootState } from "../../Redux/store";
-import {
-  Button,
-  Container,
-  Deletar,
-  Editar,
-  FormContainer,
-  Icones,
-  Input,
-  Titulo,
-} from "./styles";
+import { Button, Container, FormContainer, Input, Titulo } from "./styles";
 import TarefaItem from "./tarefaItem";
 
 export default function TodoList() {

@@ -18,15 +18,7 @@ export const ContainerGeral = styled.main`
 `;
 
 export const Container = styled.div`
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background: transparent;
-  width: 20rem;
-  height: auto;
-  margin: 25% auto;
-  border-radius: 0.5rem; */
+
 `;
 
 export const ContainerTarefa = styled.div`
